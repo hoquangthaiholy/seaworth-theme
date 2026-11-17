@@ -1,0 +1,185 @@
+<section class="blanz-section sp-section" data-name="theme/shareholder-info" data-title="Shareholder Info & FAQ"
+    data-category="theme" data-icon="info"
+    data-description="Shareholder information block with material news announcements and expandable FAQ accordion">
+
+    <div class="blanz-container">
+        <div class="sp-section-head reveal">
+            <h2 class="en-poetic-title" data-bind="newsEnTitle">MATERIAL NEWS</h2>
+            <p data-bind="newsCnTitle">重大訊息公告</p>
+        </div>
+        <div class="sp-empty-state reveal" data-bind="newsNotice">目前尚無重大訊息公告，如有進一步更新將於本頁即時揭露。</div>
+
+        <div class="sp-section-head reveal" style="margin-top:100px;">
+            <h2 class="en-poetic-title" data-bind="faqEnTitle">FAQ</h2>
+            <p data-bind="faqCnTitle">常見問答</p>
+        </div>
+
+        <div class="sp-accordion">
+            <div class="sp-accordion-item reveal" data-repeater="faqItems" data-repeater-item-label="faqTitle" data-label="FAQ 01">
+                <button type="button" class="sp-accordion-head" aria-expanded="false">
+                    <span class="sp-accordion-head-left">
+                        <span class="sp-accordion-index" data-bind="faqIndex">01</span>
+                        <span>
+                            <span class="sp-accordion-title" data-bind="faqTitle">海沃控股的主要業務範圍為何？</span>
+                        </span>
+                    </span>
+                    <i data-lucide="chevron-down" class="sp-accordion-icon"></i>
+                </button>
+                <div class="sp-accordion-panel-wrap">
+                    <div class="sp-accordion-panel">
+                        <div class="sp-accordion-panel-inner">
+                            <p data-bind="faqAnswer">
+                                海沃控股深耕遠洋漁業為核心，戰略性向產業鏈上下游延伸，建構涵蓋「船舶建造、船隊經營管理、冷凍倉儲、冷鏈物流及漁獲貿易」的全鏈路垂直整合營運模式。藉由關鍵資源的深度掌控，最大化提升跨國供應鏈之協同效應與產業壁壘。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-accordion-item reveal" data-repeater="faqItems" data-repeater-item-label="faqTitle" data-label="FAQ 02">
+                <button type="button" class="sp-accordion-head" aria-expanded="false">
+                    <span class="sp-accordion-head-left">
+                        <span class="sp-accordion-index" data-bind="faqIndex">02</span>
+                        <span>
+                            <span class="sp-accordion-title" data-bind="faqTitle">海沃控股的核心競爭優勢為何？</span>
+                        </span>
+                    </span>
+                    <i data-lucide="chevron-down" class="sp-accordion-icon"></i>
+                </button>
+                <div class="sp-accordion-panel-wrap">
+                    <div class="sp-accordion-panel">
+                        <div class="sp-accordion-panel-inner">
+                            <p data-bind="faqAnswer">
+                                歷經四十餘載的砥礪深耕，海沃控股已由傳統遠洋漁業，發展為集「智慧造船、現代化漁撈、智慧冷鏈物流、國際漁獲貿易」於一體之多元化、跨領域、跨國際控股公司。我們始終秉持「專業、誠信、創新、永續」的核心價值，深化組織治理與全球法令遵循，以責任引領產業轉型，構築長青的永續發展基石與穩健的競爭基礎。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-accordion-item reveal" data-repeater="faqItems" data-repeater-item-label="faqTitle" data-label="FAQ 03">
+                <button type="button" class="sp-accordion-head" aria-expanded="false">
+                    <span class="sp-accordion-head-left">
+                        <span class="sp-accordion-index" data-bind="faqIndex">03</span>
+                        <span>
+                            <span class="sp-accordion-title" data-bind="faqTitle">如何快速了解公司整體營運概況？</span>
+                        </span>
+                    </span>
+                    <i data-lucide="chevron-down" class="sp-accordion-icon"></i>
+                </button>
+                <div class="sp-accordion-panel-wrap">
+                    <div class="sp-accordion-panel">
+                        <div class="sp-accordion-panel-inner">
+                            <p data-bind="faqAnswer">可參閱本網站「投資人專區」之「投資亮點」與「策略布局」了解海沃控股核心事業、營運架構、產業布局及未來發展方向。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-accordion-item reveal" data-repeater="faqItems" data-repeater-item-label="faqTitle" data-label="FAQ 04">
+                <button type="button" class="sp-accordion-head" aria-expanded="false">
+                    <span class="sp-accordion-head-left">
+                        <span class="sp-accordion-index" data-bind="faqIndex">04</span>
+                        <span>
+                            <span class="sp-accordion-title" data-bind="faqTitle">海沃控股如何推動永續經營？</span>
+                        </span>
+                    </span>
+                    <i data-lucide="chevron-down" class="sp-accordion-icon"></i>
+                </button>
+                <div class="sp-accordion-panel-wrap">
+                    <div class="sp-accordion-panel">
+                        <div class="sp-accordion-panel-inner">
+                            <p data-bind="faqAnswer">
+                                海沃控股將永續經營視為企業發展之核心錨點，從環境（E）、社會（S）與治理（G）三大面向推動。在環境（E）維度上，海沃控股深耕海洋資源保育與責任漁業，推動低碳船隊建設以實踐環境保護承諾；在社會（S）維度上，我們全面保障一線船員權益、職業安全，並建構透明且合規之永續責任供應鏈；在治理（G）維度上，海沃控股則持續強化公司治理效能、健全營運韌性、風險管理機制及營運透明度，透過 ESG 與核心事業的結合，致力實踐兼顧生態共榮、經濟價值、社會責任的現代化漁業控股體系。
+                                ESG 與核心事業的結合，致力實踐兼顧生態共榮、經濟價值、社會責任的現代化漁業控股體系。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-accordion-item reveal" data-repeater="faqItems" data-repeater-item-label="faqTitle" data-label="FAQ 05">
+                <button type="button" class="sp-accordion-head" aria-expanded="false">
+                    <span class="sp-accordion-head-left">
+                        <span class="sp-accordion-index" data-bind="faqIndex">05</span>
+                        <span>
+                            <span class="sp-accordion-title" data-bind="faqTitle">目前船隊主要船型有哪些？</span>
+                        </span>
+                    </span>
+                    <i data-lucide="chevron-down" class="sp-accordion-icon"></i>
+                </button>
+                <div class="sp-accordion-panel-wrap">
+                    <div class="sp-accordion-panel">
+                        <div class="sp-accordion-panel-inner">
+                            <p data-bind="faqAnswer">
+                                海沃控股布建多元化遠洋船隊，包含圍網船、魷釣船、鮪延繩釣船與冷凍運搬船等不同船隊，並遵循科學化管理，依據不同目標漁種及特定作業海域之環境特性，進行動態配置與友善調度，體現對海洋資源永續利用的承諾。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-accordion-item reveal" data-repeater="faqItems" data-repeater-item-label="faqTitle" data-label="FAQ 06">
+                <button type="button" class="sp-accordion-head" aria-expanded="false">
+                    <span class="sp-accordion-head-left">
+                        <span class="sp-accordion-index" data-bind="faqIndex">06</span>
+                        <span>
+                            <span class="sp-accordion-title" data-bind="faqTitle">如何確保漁獲品質與穩定性？</span>
+                        </span>
+                    </span>
+                    <i data-lucide="chevron-down" class="sp-accordion-icon"></i>
+                </button>
+                <div class="sp-accordion-panel-wrap">
+                    <div class="sp-accordion-panel">
+                        <div class="sp-accordion-panel-inner">
+                            <p data-bind="faqAnswer">海沃控股整合超低溫冷凍保鮮技術、高效率運搬調度與智能化冷鏈物流系統，建構全方位食品安全與品質管理制度。透過「從船頭到餐桌（From Ocean to Table）」的全程溫控監測，嚴密保障漁獲自海上捕撈、跨洋運輸至終端供應鏈各階段之品質穩定與卓越規格。
+                                Ocean to Table）」的全程溫控監測，嚴密保障漁獲自海上捕撈、跨洋運輸至終端供應鏈各階段之品質穩定與卓越規格。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-accordion-item reveal" data-repeater="faqItems" data-repeater-item-label="faqTitle" data-label="FAQ 07">
+                <button type="button" class="sp-accordion-head" aria-expanded="false">
+                    <span class="sp-accordion-head-left">
+                        <span class="sp-accordion-index" data-bind="faqIndex">07</span>
+                        <span>
+                            <span class="sp-accordion-title" data-bind="faqTitle">海沃控股如何確保營運符合法規與國際標準？</span>
+                        </span>
+                    </span>
+                    <i data-lucide="chevron-down" class="sp-accordion-icon"></i>
+                </button>
+                <div class="sp-accordion-panel-wrap">
+                    <div class="sp-accordion-panel">
+                        <div class="sp-accordion-panel-inner">
+                            <p data-bind="faqAnswer">
+                                海沃控股建構完善的跨國合規管理機制，積極對接全球責任漁業管理指標與主流生態認證。我們將內部控管體系與外部第三方查驗深度融合，確保公司於全球各運營主體之業務行為，均恪守地方法規與國際最高標準，落實合規經營之核心承諾。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sp-accordion-item reveal" data-repeater="faqItems" data-repeater-item-label="faqTitle" data-label="FAQ 08">
+                <button type="button" class="sp-accordion-head" aria-expanded="false">
+                    <span class="sp-accordion-head-left">
+                        <span class="sp-accordion-index" data-bind="faqIndex">08</span>
+                        <span>
+                            <span class="sp-accordion-title" data-bind="faqTitle">海沃控股未來的發展重點為何？</span>
+                        </span>
+                    </span>
+                    <i data-lucide="chevron-down" class="sp-accordion-icon"></i>
+                </button>
+                <div class="sp-accordion-panel-wrap">
+                    <div class="sp-accordion-panel">
+                        <div class="sp-accordion-panel-inner">
+                            <p data-bind="faqAnswer">
+                                海沃控股將持續深化遠洋漁業核心能力與全球供應鏈布局，並朝向船隊智慧化、營運數位化、供應鏈整合及永續漁業等方向發展。在技術應用方面，加速導入 AI
+                                智慧船隊管理系統以優化捕撈與調度能效。同時，我們將積極推進跨區域之責任漁業國際合作，在永續發展的前提下，強化跨國營運風險應變能力與防禦機制，進一步堆疊公司的整體營運韌性與長期競爭優勢。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

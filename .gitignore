@@ -1,0 +1,28 @@
+.DS_Store
+Thumbs.db
+
+# Dependencies
+/node_modules/
+/vendor/
+
+# Build output and caches
+/build/
+/dist/
+/coverage/
+.sass-cache/
+.cache/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Editor settings
+.idea/
+.vscode/

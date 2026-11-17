@@ -1,0 +1,41 @@
+<section class="blanz-section sp-section"
+    data-name="theme/news-archive"
+    data-title="News Archive Grid"
+    data-category="theme"
+    data-icon="grid-view"
+    data-description="Grid archive listing announcements, corporate news, or sustainability practice articles">
+
+    <inspector-controls>
+        <panel-body title="Category Query / 分類查詢">
+            <term-picker 
+                bind="category" 
+                posts_bind="articles" 
+                posts_per_page="12" 
+                taxonomy="category" 
+                context="always"
+                multiple="false" 
+                label="Article Category / 文章分類" 
+                toolbar="true">
+            </term-picker>
+        </panel-body>
+    </inspector-controls>
+
+    <div class="blanz-container">
+        <div class="sp-lede reveal" data-bind="lede">新聞稿、重大澄清聲明</div>
+
+        <div class="projects-4-grid">
+            <template data-for="item in articles">
+                <a class="project-card-item reveal" href="#" data-bind="item.url" data-bind-prop="href" style="color: inherit; text-decoration: none;">
+                    <div class="project-thumb-box">
+                        <img data-bind="item.thumb" src="/wp-content/themes/seaworth/assets/news/news-corporate.jpg" alt="" />
+                    </div>
+                    <div class="project-card-body">
+                        <span class="project-card-tag" data-bind="item.meta">2026.08.15 ‧ CORPORATE</span>
+                        <div class="project-card-title" data-bind="item.title">文章標題</div>
+                        <p class="project-card-desc" data-bind="item.desc">文章摘要</p>
+                    </div>
+                </a>
+            </template>
+        </div>
+    </div>
+</section>

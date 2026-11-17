@@ -1,0 +1,102 @@
+name: Deploy
+
+# Copies the theme to your server over SSH (rsync). It runs after every release and can be run by hand
+# (Actions → Deploy → Run workflow) to redeploy or roll back to any tag.
+#
+# Repository secrets (Settings → Secrets and variables → Actions):
+#   DEPLOY_HOST            server name or IP
+#   DEPLOY_USER            SSH user
+#   DEPLOY_KEY             private key (OpenSSH format) of a key that is authorised on the server
+#   DEPLOY_PATH            absolute path of the theme folder, e.g. /var/www/site/wp-content/themes/seaworth
+#   DEPLOY_PORT            optional, default 22
+#   DEPLOY_KNOWN_HOSTS     optional output of "ssh-keyscan -p PORT HOST" (recommended; otherwise the host key is scanned)
+#   DEPLOY_POST_COMMAND    optional command run on the server afterwards, e.g. "wp --path=/var/www/site cache flush"
+# Without DEPLOY_HOST / DEPLOY_USER / DEPLOY_KEY / DEPLOY_PATH the job does nothing.
+
+on:
+  workflow_call:
+    inputs:
+      ref:
+        description: Tag or branch to deploy
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Tag or branch to deploy (for example v1.2.0)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Check configuration
+        id: cfg
+        env:
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          USER_: ${{ secrets.DEPLOY_USER }}
+          KEY: ${{ secrets.DEPLOY_KEY }}
+          DEST: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          if [ -z "$HOST" ] || [ -z "$USER_" ] || [ -z "$KEY" ] || [ -z "$DEST" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Deploy skipped: DEPLOY_HOST, DEPLOY_USER, DEPLOY_KEY and DEPLOY_PATH are not all set."
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.cfg.outputs.enabled == 'true'
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Prepare SSH
+        if: steps.cfg.outputs.enabled == 'true'
+        env:
+          KEY: ${{ secrets.DEPLOY_KEY }}
+          KNOWN: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          PORT: ${{ secrets.DEPLOY_PORT }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          if [ -n "$KNOWN" ]; then
+            printf '%s\n' "$KNOWN" > ~/.ssh/known_hosts
+          else
+            ssh-keyscan -p "${PORT:-22}" "$HOST" > ~/.ssh/known_hosts
+          fi
+
+      - name: Rsync theme
+        if: steps.cfg.outputs.enabled == 'true'
+        env:
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          USER_: ${{ secrets.DEPLOY_USER }}
+          DEST: ${{ secrets.DEPLOY_PATH }}
+          PORT: ${{ secrets.DEPLOY_PORT }}
+        run: |
+          rsync -az --delete \
+            --exclude='.git' --exclude='.github' --exclude='.gitignore' --exclude='README.md' --exclude='update.json' --exclude='.DS_Store' \
+            -e "ssh -i ~/.ssh/deploy_key -p ${PORT:-22} -o StrictHostKeyChecking=yes" \
+            ./ "${USER_}@${HOST}:${DEST%/}/"
+
+      - name: Post-deploy command
+        if: steps.cfg.outputs.enabled == 'true'
+        env:
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          USER_: ${{ secrets.DEPLOY_USER }}
+          PORT: ${{ secrets.DEPLOY_PORT }}
+          CMD: ${{ secrets.DEPLOY_POST_COMMAND }}
+        run: |
+          if [ -n "$CMD" ]; then
+            ssh -i ~/.ssh/deploy_key -p "${PORT:-22}" -o StrictHostKeyChecking=yes "${USER_}@${HOST}" "$CMD"
+          fi

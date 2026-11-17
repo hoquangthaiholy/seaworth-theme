@@ -1,0 +1,88 @@
+name: Release
+
+# Push a tag like v1.2.0 (the version must match "Version:" in style.css). The workflow builds the installable zip
+# (top folder "seaworth/"), creates the GitHub release, publishes update.json (what installed sites read to offer the
+# update) and, when deploy secrets are configured, deploys the theme to your server.
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.meta.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: none
+
+      - name: Check version and lint
+        id: meta
+        run: |
+          VERSION=$(sed -n 's/^Version: *//p' style.css | head -1 | tr -d '\r')
+          TAG="${GITHUB_REF_NAME#v}"
+          if [ "$VERSION" != "$TAG" ]; then
+            echo "::error::style.css Version ($VERSION) does not match the tag ($TAG)"
+            exit 1
+          fi
+          find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l > /dev/null
+          jq empty theme.json
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Build zip
+        id: build
+        run: |
+          VERSION="${{ steps.meta.outputs.version }}"
+          mkdir -p build/seaworth
+          rsync -a \
+            --exclude='.git' --exclude='.github' --exclude='.gitignore' --exclude='build' \
+            --exclude='README.md' --exclude='update.json' --exclude='.DS_Store' \
+            ./ build/seaworth/
+          (cd build && zip -qr "../seaworth-${VERSION}.zip" seaworth)
+          SHA=$(sha256sum "seaworth-${VERSION}.zip" | cut -d' ' -f1)
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          ls -lh "seaworth-${VERSION}.zip"
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${{ steps.meta.outputs.version }}"
+          gh release create "$GITHUB_REF_NAME" "seaworth-${VERSION}.zip" \
+            --title "Seaworth ${VERSION}" --notes-from-tag --verify-tag
+
+      - name: Publish update.json
+        run: |
+          VERSION="${{ steps.meta.outputs.version }}"
+          field() { sed -n "s/^$1: *//p" style.css | head -1 | tr -d '\r'; }
+          jq -n \
+            --arg version "$VERSION" \
+            --arg package "https://github.com/${GITHUB_REPOSITORY}/releases/download/${GITHUB_REF_NAME}/seaworth-${VERSION}.zip" \
+            --arg sha256 "${{ steps.build.outputs.sha }}" \
+            --arg requires "$(field 'Requires at least')" \
+            --arg requires_php "$(field 'Requires PHP')" \
+            --arg released "$(date -u +%F)" \
+            '{version:$version, package:$package, sha256:$sha256, requires:$requires, requires_php:$requires_php, released:$released}' > /tmp/update.json
+          git fetch origin main
+          git checkout -B main origin/main
+          cp /tmp/update.json update.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add update.json
+          git commit -m "release: ${VERSION}" || echo "update.json unchanged"
+          git push origin main
+
+  deploy:
+    needs: release
+    uses: ./.github/workflows/deploy.yml
+    with:
+      ref: ${{ github.ref_name }}
+    secrets: inherit

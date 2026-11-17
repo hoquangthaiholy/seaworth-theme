@@ -1,0 +1,62 @@
+<section class="blanz-hero" data-name="theme/hero-banner" data-title="Hero Banner Slider" data-category="theme" data-icon="cover-image"
+  data-description="Iconic luxury full-bleed hero banner with title, background images, wave canvas, and quick jump navigation.">
+  <div class="hero-bg-wrapper" data-editor-interactive="false">
+    <picture data-repeater="slides" data-label="Hero Slide" data-repeater-item-label="desktopImg_alt">
+      <source media="(max-width: 640px)" data-bind="mobileImg" data-bind-prop="srcset" srcset="/wp-content/themes/seaworth/assets/hero/hero-mobile-01.jpg" />
+      <img data-bind="desktopImg" src="/wp-content/themes/seaworth/assets/hero/hero-wave.jpg" alt="Hero Slide 01" class="hero-bg-img" />
+    </picture>
+    <picture data-repeater="slides" data-label="Hero Slide" data-repeater-item-label="desktopImg_alt">
+      <source media="(max-width: 640px)" data-bind="mobileImg" data-bind-prop="srcset" srcset="/wp-content/themes/seaworth/assets/hero/hero-mobile-02.jpg" />
+      <img data-bind="desktopImg" src="/wp-content/themes/seaworth/assets/hero/hero-banner-02.jpg" alt="Hero Slide 02" class="hero-bg-img" />
+    </picture>
+    <picture data-repeater="slides" data-label="Hero Slide" data-repeater-item-label="desktopImg_alt">
+      <source media="(max-width: 640px)" data-bind="mobileImg" data-bind-prop="srcset" srcset="/wp-content/themes/seaworth/assets/hero/hero-mobile-03.jpg" />
+      <img data-bind="desktopImg" src="/wp-content/themes/seaworth/assets/hero/hero-banner-04.jpg" alt="Hero Slide 03" class="hero-bg-img" />
+    </picture>
+    <picture data-repeater="slides" data-label="Hero Slide" data-repeater-item-label="desktopImg_alt">
+      <source media="(max-width: 640px)" data-bind="mobileImg" data-bind-prop="srcset" srcset="/wp-content/themes/seaworth/assets/hero/hero-mobile-04.jpg" />
+      <img data-bind="desktopImg" src="/wp-content/themes/seaworth/assets/hero/hero-banner-01.jpg" alt="Hero Slide 04" class="hero-bg-img" />
+    </picture>
+    <canvas class="hero-morph-canvas" id="heroMorphCanvas"></canvas>
+    <div class="hero-bg-overlay"></div>
+  </div>
+
+  <div class="hero-content-wrapper">
+    <div class="hero-slide-dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+    </div>
+
+    <div class="hero-bottom-area">
+      <div class="hero-big-title-group">
+        <h1 class="hero-big-title" data-bind="heroTitle">SEAWORTH</h1>
+      </div>
+
+      <div class="hero-slide-nav">
+        <a href="#three-sectors" class="slide-nav-item active-nav" data-repeater="navs" data-label="Nav Item" data-repeater-item-label="navTitleTw"
+          data-bind="navLink">
+          <span class="nav-text"><span data-bind="navTitleTw">三大事業群</span> <span class="nav-text-en"
+              data-bind="navTitleEn">Pillars</span></span>
+          <i data-lucide="arrow-right" class="nav-icon"></i>
+        </a>
+        <a href="#esg" class="slide-nav-item" data-repeater="navs" data-label="Nav Item" data-repeater-item-label="navTitleTw" data-bind="navLink">
+          <span class="nav-text"><span data-bind="navTitleTw">永續共善</span> <span class="nav-text-en"
+              data-bind="navTitleEn">Sustainability</span></span>
+          <i data-lucide="arrow-right" class="nav-icon"></i>
+        </a>
+        <a href="#news" class="slide-nav-item" data-repeater="navs" data-label="Nav Item" data-repeater-item-label="navTitleTw" data-bind="navLink">
+          <span class="nav-text"><span data-bind="navTitleTw">最新消息</span> <span class="nav-text-en"
+              data-bind="navTitleEn">News</span></span>
+          <i data-lucide="arrow-right" class="nav-icon"></i>
+        </a>
+        <a href="#contact" class="slide-nav-item" data-repeater="navs" data-label="Nav Item" data-repeater-item-label="navTitleTw" data-bind="navLink">
+          <span class="nav-text"><span data-bind="navTitleTw">聯絡我們</span> <span class="nav-text-en"
+              data-bind="navTitleEn">Contact</span></span>
+          <i data-lucide="arrow-right" class="nav-icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

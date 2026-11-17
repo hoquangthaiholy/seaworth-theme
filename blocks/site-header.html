@@ -1,0 +1,158 @@
+<header class="blanz-header" data-title="Header" data-category="theme" data-icon="layout"
+  data-description="The Poetic Oceanic Class fixed luxury header with split-navigation, center trident icon, dropdowns, and mobile menu panel.">
+  <nav class="blanz-nav-inner">
+    <!-- 左側：Logo 文字與 3 個分組選單 -->
+    <div class="nav-left-area">
+      <a href="{{ site.url }}" data-bind-prop="href" style="display: flex; align-items: center; height: 100%;">
+        <img data-bind="logoDesktop" src="/wp-content/themes/seaworth/assets/logo/logo-text.png" alt="SEAWORTH HOLDING"
+          class="logo-desktop" style="height:32px; width:auto;" />
+        <img data-bind="logoMobile" src="/wp-content/themes/seaworth/assets/logo/logo-header-2.png"
+          alt="SEAWORTH HOLDING" class="logo-mobile" style="height:34px; width:auto;" />
+      </a>
+      <ul class="nav-split-menu" data-tree="leftNav" data-label="Left Nav Item" data-tree-item-label="navLink">
+        <li class="has-dropdown" data-tree-item>
+          <a href="#" data-bind="navLink">公司總覽</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner" data-tree-children>
+              <a href="about.html" data-tree-item data-bind="navLink">關於海沃</a>
+              <a href="business-map.html" data-tree-item data-bind="navLink">事業版圖</a>
+              <a href="tech-integration.html" data-tree-item data-bind="navLink">技術整合能力</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dropdown" data-tree-item>
+          <a href="governance-structure.html" data-bind="navLink">公司治理</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner" data-tree-children>
+              <a href="governance-structure.html" data-tree-item data-bind="navLink">公司治理架構</a>
+              <a href="risk-management.html" data-tree-item data-bind="navLink">風險管理政策</a>
+              <a href="internal-audit.html" data-tree-item data-bind="navLink">內部稽核與內控制度</a>
+              <a href="integrity.html" data-tree-item data-bind="navLink">誠信經營守則</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dropdown" data-tree-item>
+          <a href="environment.html" data-bind="navLink">共善經營</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner" data-tree-children>
+              <a href="environment.html" data-tree-item data-bind="navLink">環境保護</a>
+              <a href="social-responsibility.html" data-tree-item data-bind="navLink">社會責任</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 中央：海神叉 Icon -->
+    <a href="{{ site.url }}" class="nav-center-icon">
+      <img data-bind="centerIcon" src="/wp-content/themes/seaworth/assets/logo/logo-icon.png" alt="SEAWORTH Trident"
+        style="height:48px; width:auto;" />
+    </a>
+
+    <!-- 右側：3 個分組選單 + 語言選擇 + 漢堡按鈕 -->
+    <div class="nav-right-area">
+      <ul class="nav-split-menu" data-tree="rightNav" data-label="Right Nav Item" data-tree-item-label="navLink">
+        <li class="has-dropdown" data-tree-item>
+          <a href="investment-highlights.html" data-bind="navLink">投資人專區</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner" data-tree-children>
+              <a href="investment-highlights.html" data-tree-item data-bind="navLink">投資亮點</a>
+              <a href="strategy.html" data-tree-item data-bind="navLink">策略布局</a>
+              <a href="shareholder-info.html" data-tree-item data-bind="navLink">股東訊息</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dropdown" data-tree-item>
+          <a href="announcements.html" data-bind="navLink">最新消息</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner" data-tree-children>
+              <a href="announcements.html" data-tree-item data-bind="navLink">官方公告</a>
+              <a href="corporate-news.html" data-tree-item data-bind="navLink">企業動態</a>
+              <a href="sustainability-practice.html" data-tree-item data-bind="navLink">永續實踐</a>
+            </div>
+          </div>
+        </li>
+        <li class="has-dropdown" data-tree-item>
+          <a href="#" data-bind="navLink">聯繫海沃</a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner" data-tree-children>
+              <a href="locations.html" data-tree-item data-bind="navLink">營運據點</a>
+              <a href="contact-us.html" data-tree-item data-bind="navLink">聯絡我們</a>
+              <a href="careers.html" data-tree-item data-bind="navLink">人才招募</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="nav-split-menu">
+        <li class="nav-lang-picker has-dropdown">
+          <a href="#" style="display: flex; align-items: center; gap: 4px;">
+            <span>{{current_lang_name}}</span> <i data-lucide="chevron-down"
+              style="width: 14px; height: 14px;"></i>
+          </a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner">
+              <template data-if="context.is_editor">
+                <a href="#"><span>繁體中文</span></a>
+              </template>
+              <template data-else data-for="lang in languages">
+                <a href="#" class="is-active" data-if="lang.is_current" data-bind="lang.url" data-bind-prop="href"><span data-bind="lang.name">繁體中文</span></a>
+                <a href="#" data-else data-bind="lang.url" data-bind-prop="href"><span data-bind="lang.name">繁體中文</span></a>
+              </template>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <button type="button" class="nav-hamburger" id="navHamburger" aria-label="開啟選單" aria-expanded="false"
+        aria-controls="navMobilePanel">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 手機版全螢幕選單面板 -->
+  <div class="nav-mobile-panel" id="navMobilePanel">
+    <div class="nav-mobile-tree" data-tree="leftNav" data-label="Left Nav Item" data-tree-item-label="navLink">
+      <div class="nav-mobile-group" data-tree-item>
+        <button type="button" class="nav-mobile-group-head">
+          <span data-bind="navLink">公司總覽</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="nav-mobile-sub">
+          <div class="nav-mobile-sub-inner" data-tree-children>
+            <a href="about.html" data-tree-item data-bind="navLink">關於海沃</a>
+            <a href="business-map.html" data-tree-item data-bind="navLink">事業版圖</a>
+            <a href="tech-integration.html" data-tree-item data-bind="navLink">技術整合能力</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-mobile-tree" data-tree="rightNav" data-label="Right Nav Item" data-tree-item-label="navLink">
+      <div class="nav-mobile-group" data-tree-item>
+        <button type="button" class="nav-mobile-group-head">
+          <span data-bind="navLink">投資人專區</span>
+          <i data-lucide="chevron-down"></i>
+        </button>
+        <div class="nav-mobile-sub">
+          <div class="nav-mobile-sub-inner" data-tree-children>
+            <a href="investment-highlights.html" data-tree-item data-bind="navLink">投資亮點</a>
+            <a href="strategy.html" data-tree-item data-bind="navLink">策略布局</a>
+            <a href="shareholder-info.html" data-tree-item data-bind="navLink">股東訊息</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-mobile-lang">
+      <template data-if="context.is_editor">
+        <a href="#"><span>繁體中文</span></a>
+      </template>
+      <template data-else data-for="lang in languages">
+        <a href="#" class="is-active" data-if="lang.is_current" data-bind="lang.url" data-bind-prop="href"><span data-bind="lang.name">繁體中文</span></a>
+        <a href="#" data-else data-bind="lang.url" data-bind-prop="href"><span data-bind="lang.name">繁體中文</span></a>
+      </template>
+    </div>
+  </div>
+</header>

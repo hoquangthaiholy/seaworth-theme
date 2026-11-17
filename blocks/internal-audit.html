@@ -1,0 +1,38 @@
+<section class="blanz-section sp-section" data-name="theme/internal-audit" data-title="Internal Audit & Controls" data-category="theme" data-icon="clipboard" data-description="Independent internal audit intro, controls framework, and dark banner with audit metrics.">
+  <div class="blanz-container">
+    <div class="sp-media-row reveal">
+      <div class="sp-media-frame">
+        <img data-bind="auditImage" src="/wp-content/themes/seaworth/assets/photo/img-internal-audit.jpg" alt="內部稽核與內控制度" />
+      </div>
+      <div class="sp-media-text">
+        <h3 data-bind="rowTitle">風險導向的獨立稽核機制</h3>
+        <p data-repeater="paragraphs" data-label="Paragraph" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">海沃控股持續強化公司治理、風險管理及內部控制，並參照「全球內部稽核準則」之精神，建立獨立、客觀之內部稽核機制，協助董事會及管理階層提升治理品質與營運效能。</p>
+        <p data-repeater="paragraphs" data-label="Paragraph" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">公司重大風險由風險管理小組依全球營運策略、產業環境及營運特性統籌風險管理；內部稽核則依風險導向原則，確認風險辨識之完整性、評估合理性及因應措施之落實情形，並檢視相關內部控制作業是否有效執行。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="blanz-section" style="background-color: var(--c-ocean-deep); color: #FFF; position: relative; overflow: hidden; padding: 120px 0; margin-top: 60px;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at top right, rgba(255,255,255,0.03), transparent 60%); pointer-events: none;"></div>
+    <div class="blanz-container">
+      <div class="audit-dark-banner reveal">
+        <h4 data-bind="bannerTitle">建構可追溯、可衡量及持續改善之內部控制體系</h4>
+        <p data-bind="bannerDesc">海沃控股透過授權核准、權責分工、文件留存、系統紀錄及異常追蹤等控制機制，持續提升營運透明度、資料可靠性及管理品質。</p>
+        <div class="audit-stats-row">
+          <div class="audit-stat-item">
+            <span class="audit-stat-value"><span data-bind="s1_val">100</span><span class="num-sym">%</span></span>
+            <span class="audit-stat-label" data-bind="s1_lbl">AUTHORIZATION</span>
+          </div>
+          <div class="audit-stat-item">
+            <span class="audit-stat-value" data-bind="s2_val">0</span>
+            <span class="audit-stat-label" data-bind="s2_lbl">TOLERANCE</span>
+          </div>
+          <div class="audit-stat-item">
+            <span class="audit-stat-value"><span data-bind="s3_val">24</span><span class="num-sym">/7</span></span>
+            <span class="audit-stat-label" data-bind="s3_lbl">SYSTEM LOGS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

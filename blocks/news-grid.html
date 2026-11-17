@@ -1,0 +1,41 @@
+<section class="section-projects" id="news" data-name="theme/news-grid" data-title="News & Insights Grid" data-category="theme" data-icon="megaphone" data-description="News & Insights grid with article cards, thumbnail images, category tags, and date.">
+  <inspector-controls>
+    <panel-body title="News Section Settings">
+      <text-control data-bind="viewAllLink" label="View All URL"></text-control>
+    </panel-body>
+    <panel-body title="Articles Selection / 文章挑選">
+      <post-picker 
+        bind="articles" 
+        multiple="true" 
+        max_items="4" 
+        label="Select Posts / 挑選精選文章 (Max 4)" 
+        toolbar="true">
+      </post-picker>
+    </panel-body>
+  </inspector-controls>
+
+  <div class="blanz-container">
+    <div class="projects-header-top">
+      <div>
+        <h2 class="projects-h2" style="margin-bottom: 0px;" data-bind="sectionTitle">NEWS &amp; INSIGHTS</h2>
+        <span style="font-family: var(--font-serif); font-size: var(--text-lg); font-weight: 400; color: var(--c-subtitle-blue); letter-spacing: 0.15em; display: block; margin-top: 16px;" data-bind="sectionSubtitle">最新動態 ‧ 產業洞察與公司快訊</span>
+      </div>
+      <a href="#news" class="news-link-btn" data-bind="viewAllText">VIEW ALL NEWS →</a>
+    </div>
+
+    <div class="projects-4-grid">
+      <template data-for="item in articles">
+        <a class="project-card-item" href="#" data-bind="item.url" data-bind-prop="href" style="color: inherit; text-decoration: none;">
+          <div class="project-thumb-box">
+            <img src="/wp-content/themes/seaworth/assets/news/news-corporate.jpg" data-bind="item.thumb" alt="" />
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-tag" data-bind="item.meta">2026.08.15 ‧ CORPORATE</span>
+            <div class="project-card-title" data-bind="item.title">文章標題</div>
+            <p class="project-card-desc" data-bind="item.desc">文章摘要</p>
+          </div>
+        </a>
+      </template>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+<section class="dark-sectors-section" id="esg" data-name="theme/sustainability-esg" data-title="Sustainability ESG Pillars" data-category="theme" data-icon="shield" data-description="Dark luxury section highlighting marine conservation, human rights, and governance (E-S-G).">
+  <inspector-controls>
+    <panel-body title="Environment (E) Settings">
+      <text-control data-bind="esgE_url" label="E Pillar Link URL"></text-control>
+    </panel-body>
+    <panel-body title="Social (S) Settings">
+      <text-control data-bind="esgS_url" label="S Pillar Link URL"></text-control>
+    </panel-body>
+    <panel-body title="Governance (G) Settings">
+      <text-control data-bind="esgG_url" label="G Pillar Link URL"></text-control>
+    </panel-body>
+  </inspector-controls>
+
+  <div class="blanz-container">
+    <div class="dark-sectors-layout">
+      <div class="dark-sectors-top">
+        <div class="dark-sectors-intro">
+          <h2 class="dark-sectors-title" style="font-size: var(--text-3xl); line-height: 1.2;" data-bind="esgTitle">SUSTAINABILITY</h2>
+          <span class="dark-sectors-accent" data-bind="esgAccent">共善經營 ‧ 責任引領產業升級</span>
+        </div>
+
+        <div class="dark-sectors-row row-1">
+          <a href="#esg" class="dark-card dark-card-lg">
+            <img data-bind="esgE_image" src="/wp-content/themes/seaworth/assets/photo/pho_ocean.jpg" alt="海洋生態守護" />
+            <div class="dark-card-caption">
+              <div style="font-family: var(--font-en); font-size: var(--text-3xl); font-weight: 700; line-height: 0.8; color: #FFFFFF; margin-bottom: 4px;" data-bind="esgE_badge">E</div>
+              <h3 data-bind="esgE_title">海洋生態守護</h3>
+              <p data-bind="esgE_desc">全面落實聯合國永續發展目標（SDGs）與區域漁業管理組織（RFMO）規範。採用非纏結式集魚器（FADs）與低碳節能航行技術，減緩生態衝擊。</p>
+              <span class="dark-card-link" data-bind="esgE_linkText">環境保護 更多 →</span>
+            </div>
+          </a>
+          <div class="dark-card dark-card-plain">
+            <img src="/wp-content/themes/seaworth/assets/photo/bg.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 下排滿版：50/50 比例分配 -->
+      <div class="dark-sectors-row row-2">
+        <a href="#esg" class="dark-card dark-card-md">
+          <img data-bind="esgS_image" src="/wp-content/themes/seaworth/assets/photo/pho_3.jpg" alt="人本人權保障" />
+          <div class="dark-card-caption">
+            <div style="font-family: var(--font-en); font-size: var(--text-3xl); font-weight: 700; line-height: 0.8; color: #FFFFFF; margin-bottom: 4px;" data-bind="esgS_badge">S</div>
+            <h3 data-bind="esgS_title">人本人權保障</h3>
+            <p data-bind="esgS_desc">嚴格遵循 ILO C-188 漁業工作公約 與 FISH 船員人權標準。堅守暴力零容忍原則，提供合規生活起居設施與尊嚴勞動保障。</p>
+            <span class="dark-card-link" data-bind="esgS_linkText">社會責任 更多 →</span>
+          </div>
+        </a>
+        <a href="#esg" class="dark-card dark-card-md">
+          <img data-bind="esgG_image" src="/wp-content/themes/seaworth/assets/photo/pho_4.jpg" alt="智慧科技與合規治理" />
+          <div class="dark-card-caption">
+            <div style="font-family: var(--font-en); font-size: var(--text-3xl); font-weight: 700; line-height: 0.8; color: #FFFFFF; margin-bottom: 4px;" data-bind="esgG_badge">G</div>
+            <h3 data-bind="esgG_title">智慧科技與合規治理</h3>
+            <p data-bind="esgG_desc">導入 IoT 電子浮標、AI 智慧漁撈預測與海事大數據即時調度中心。打造「從深海到餐桌」全流程可追溯供應鏈，數據透明公開。</p>
+            <span class="dark-card-link" data-bind="esgG_linkText">公司治理 更多 →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

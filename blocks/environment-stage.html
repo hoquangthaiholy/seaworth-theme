@@ -1,0 +1,106 @@
+<section class="sp-stage"
+    data-name="theme/environment-stage"
+    data-title="Environment Stage (3 Pillars)"
+    data-category="theme"
+    data-icon="admin-site-alt3"
+    data-description="Interactive 3-pillar environment stage with dynamic wave canvas, spheres, and content stack"
+    data-bind="activeStage"
+    data-bind-prop="data-stage">
+
+    <inspector-controls>
+        <panel-body title="Editor Display / 編輯預覽">
+            <select-control label="Active Stage Preview / 預覽階段" data-bind="activeStage" default="idle">
+                <option value="idle">Idle (預設前言)</option>
+                <option value="0">Pillar 1: 海洋保育</option>
+                <option value="1">Pillar 2: SDGs</option>
+                <option value="2">Pillar 3: 船上廢棄物與油料管理</option>
+            </select-control>
+        </panel-body>
+    </inspector-controls>
+
+    <canvas class="sp-lineart-canvas" id="envWaveCanvas"></canvas>
+
+    <div class="sp-bg-photo" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 01" data-index="0" data-i="0">
+        <img data-bind="image" src="/wp-content/themes/seaworth/assets/photo/env-sdg-eco.jpg" alt="" />
+    </div>
+    <div class="sp-bg-photo" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 02" data-index="1" data-i="1">
+        <img data-bind="image" src="/wp-content/themes/seaworth/assets/photo/env-sdg-fishery.jpg" alt="" />
+    </div>
+    <div class="sp-bg-photo" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 03" data-index="2" data-i="2">
+        <img data-bind="image" src="/wp-content/themes/seaworth/assets/photo/env-sdg-corp.jpg" alt="" />
+    </div>
+    <div class="sp-bg-wash"></div>
+
+    <div class="sp-content-row">
+        <div class="sp-sphere-col" id="spSpheres">
+            <div class="sp-sphere" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 01" data-index="0" data-i="0">
+                <img data-bind="image" src="/wp-content/themes/seaworth/assets/photo/env-sdg-eco.jpg" alt="海洋保育" />
+                <div class="sp-sphere-label" data-bind="label">保育</div>
+            </div>
+            <div class="sp-sphere" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 02" data-index="1" data-i="1">
+                <img data-bind="image" src="/wp-content/themes/seaworth/assets/photo/env-sdg-fishery.jpg" alt="落實 SDGs" />
+                <div class="sp-sphere-label" data-bind="label">SDGs</div>
+            </div>
+            <div class="sp-sphere" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 03" data-index="2" data-i="2">
+                <img data-bind="image" src="/wp-content/themes/seaworth/assets/photo/env-sdg-corp.jpg" alt="廢棄物管理" />
+                <div class="sp-sphere-label" data-bind="label">管理</div>
+            </div>
+        </div>
+
+        <div class="sp-text-col">
+            <div class="sp-text-inner">
+                <div class="sp-idle" id="spIdle">
+                    <h2 class="sp-idle-headline" data-bind="idleHeadline">環境治理支柱</h2>
+                    <p class="sp-idle-desc" data-bind="idleDesc">海沃控股的共善價值，奠基於「海洋環境保護」與「人本責任實踐」兩大核心支柱，將環境永續與社會責任融入遠洋漁業的營運與管理。在環境治理層面，海沃控股以科學化、責任導向的漁業管理為基石，推行永續捕撈、海洋資源保育，降低漁業活動對海洋生態的影響，並持續優化船隊營運效能，在產業發展與海洋永續之間建立長期平衡。</p>
+                </div>
+
+                <div class="sp-content-stack" id="spContentStack">
+                    <div class="sp-headline-stage">
+                        <div class="sp-headline" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 01" data-index="0" data-i="0">
+                            <h2 data-bind="title">海洋保育</h2>
+                        </div>
+                        <div class="sp-headline" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 02" data-index="1" data-i="1">
+                            <h2 data-bind="title">落實《聯合國永續發展目標》</h2>
+                        </div>
+                        <div class="sp-headline" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 03" data-index="2" data-i="2">
+                            <h2 data-bind="title">船上廢棄物分類與油料管理</h2>
+                        </div>
+                    </div>
+
+                    <div class="sp-eyebrow-stage">
+                        <div class="sp-eyebrow" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 01" data-index="0" data-i="0">
+                            <span data-repeater="bullets" data-label="Bullet" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">海沃控股所有的產品皆已取得國際認可之認證，包括海洋管理委員會（MSC）與海豚保護標章。</span>
+                            <span data-repeater="bullets" data-label="Bullet" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">嚴格遵循非纏結式集魚器使用規範，減少對海洋生物的干擾。</span>
+                            <span data-repeater="bullets" data-label="Bullet" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">配合國際漁業組織規範推動選擇性捕撈與物種保育，降低過度捕撈及非目標物種混獲風險。</span>
+                        </div>
+                        <div class="sp-eyebrow" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 02" data-index="1" data-i="1">
+                            <span data-repeater="bullets" data-label="Bullet" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">呼應聯合國永續發展目標 SDG 14「保育及永續利用海洋生態系，防止海洋環境劣化」。</span>
+                            <span data-repeater="bullets" data-label="Bullet" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">持續透過低碳節能航行技術等行動，守護生物多樣性，降低漁業活動對海洋生態的影響。</span>
+                            <span data-repeater="bullets" data-label="Bullet" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">致力確保捕撈行為在經濟、環境與社會責任間取得平衡，讓海洋資源得以永續利用。</span>
+                        </div>
+                        <div class="sp-eyebrow" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 03" data-index="2" data-i="2">
+                            <span data-repeater="bullets" data-label="Bullet" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">海沃控股重視船舶作業所產生之廢棄物與油料管理，落實船上廢棄物分類。</span>
+                            <span data-repeater="bullets" data-label="Bullet" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">透過定期巡檢、設備維護及船員教育訓練，降低油料洩漏與污染風險。</span>
+                            <span data-repeater="bullets" data-label="Bullet" data-repeater-item-label="text" data-bind="text" data-bind-control="textarea">從設備狀態到船員作業管理，確保每艘船舶作業符合國際海洋保育與航行安全要求。</span>
+                        </div>
+                    </div>
+
+                    <div class="sp-brand-stage">
+                        <div class="sp-brand" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 01" data-index="0" data-i="0">
+                            <div class="sp-brand-lockup"><span class="sp-brand-big" data-bind="brandInitial">E</span><span class="sp-brand-rest" data-bind="brandRest">cology</span></div>
+                            <div class="sp-brand-sub" data-bind="brandSub">MARINE CONSERVATION</div>
+                        </div>
+                        <div class="sp-brand" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 02" data-index="1" data-i="1">
+                            <div class="sp-brand-lockup"><span class="sp-brand-big" data-bind="brandInitial">S</span><span class="sp-brand-rest" data-bind="brandRest">DGs</span></div>
+                            <div class="sp-brand-sub" data-bind="brandSub">SUSTAINABLE DEVELOPMENT</div>
+                        </div>
+                        <div class="sp-brand" data-repeater="pillars" data-repeater-item-label="label" data-label="Pillar 03" data-index="2" data-i="2">
+                            <div class="sp-brand-lockup"><span class="sp-brand-big" data-bind="brandInitial">M</span><span class="sp-brand-rest" data-bind="brandRest">anagement</span></div>
+                            <div class="sp-brand-sub" data-bind="brandSub">WASTE & FUEL CONTROL</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

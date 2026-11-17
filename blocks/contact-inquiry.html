@@ -1,0 +1,96 @@
+<section class="contact-poetic-section" id="contact" data-name="theme/contact-inquiry" data-title="Contact & Inquiry Form" data-category="theme" data-icon="email-alt" data-description="Poetic contact and inquiry form with custom select, channels, address, and interactive fields.">
+
+  <div class="blanz-container">
+    <div class="contact-poetic-header reveal">
+      <h2 class="contact-poetic-title" data-bind="sectionEnTitle">INQUIRY &amp;<br>REGISTRATION</h2>
+      <span style="font-family: var(--font-serif); font-size: var(--text-lg); font-weight: 400; color: var(--c-subtitle-blue); letter-spacing: 0.15em; display: block; margin-top: 16px;" data-bind="sectionSubtitle">攜手海沃 ‧ 共創海洋永續價值</span>
+    </div>
+
+    <div class="contact-poetic-grid">
+      <!-- 左側聯絡資訊 -->
+      <div class="contact-poetic-info reveal delay-1">
+        <p data-bind="introText">誠摯歡迎全球合作夥伴、機構投資人與產業先進與我們聯繫。我們將於 24 小時內指派專人與您聯繫。</p>
+
+        <ul class="contact-channels-list">
+          <li data-repeater="contactChannels" data-label="Contact Channel" data-repeater-item-label="channelLabel">
+            <span class="channel-label" data-bind="channelLabel">投資人關係 (IR)</span>
+            <a href="mailto:invest@seaworthholding.com" class="channel-mail" data-bind="channelEmail">invest@seaworthholding.com</a>
+          </li>
+          <li data-repeater="contactChannels" data-label="Contact Channel" data-repeater-item-label="channelLabel">
+            <span class="channel-label" data-bind="channelLabel">商務合作與業務洽詢</span>
+            <a href="mailto:partnership@seaworthholding.com" class="channel-mail" data-bind="channelEmail">partnership@seaworthholding.com</a>
+          </li>
+          <li data-repeater="contactChannels" data-label="Contact Channel" data-repeater-item-label="channelLabel">
+            <span class="channel-label" data-bind="channelLabel">公共關係與媒體事務</span>
+            <a href="mailto:press@seaworthholding.com" class="channel-mail" data-bind="channelEmail">press@seaworthholding.com</a>
+          </li>
+        </ul>
+
+        <div style="font-size: var(--text-xs); color: var(--c-muted); letter-spacing: 0.08em;">
+          <strong>營運總部：</strong> <span data-bind="hqAddress">台灣高雄市前鎮區漁港核心園區</span>
+        </div>
+      </div>
+
+      <!-- 右側極簡下劃線表單 -->
+      <div class="form-poetic-box reveal delay-2">
+        <form id="blanzContactForm" data-form="seaworth-contact" data-form-label="Contact & Inquiry Form" data-response="toast">
+          <div class="form-line-group">
+            <label class="form-line-label" for="serviceSelectTrigger" data-bind="serviceLabel">SELECT INQUIRY TYPE *</label>
+            <div class="custom-select" id="serviceSelectCustom">
+              <button type="button" class="custom-select-trigger" id="serviceSelectTrigger" aria-haspopup="listbox" aria-expanded="false">
+                <span class="custom-select-value is-placeholder" data-bind="servicePlaceholder">請選擇洽詢事項類別</span>
+                <i data-lucide="chevron-down" class="custom-select-chevron"></i>
+              </button>
+              <ul class="custom-select-list" role="listbox" tabindex="-1">
+                <li role="option" data-repeater="inquiryOptions" data-repeater-item-label="optLabel" data-label="Inquiry Option" data-bind="optValue" data-bind-prop="data-value" data-value="IR"><span data-bind="optLabel">投資人關係洽詢 (invest@seaworthholding.com)</span></li>
+                <li role="option" data-repeater="inquiryOptions" data-repeater-item-label="optLabel" data-label="Inquiry Option" data-bind="optValue" data-bind-prop="data-value" data-value="Partnership"><span data-bind="optLabel">商務合作與業務洽詢 (partnership@seaworthholding.com)</span></li>
+                <li role="option" data-repeater="inquiryOptions" data-repeater-item-label="optLabel" data-label="Inquiry Option" data-bind="optValue" data-bind-prop="data-value" data-value="PR"><span data-bind="optLabel">公共關係與媒體事務 (press@seaworthholding.com)</span></li>
+                <li role="option" data-repeater="inquiryOptions" data-repeater-item-label="optLabel" data-label="Inquiry Option" data-bind="optValue" data-bind-prop="data-value" data-value="Other"><span data-bind="optLabel">其他事宜</span></li>
+              </ul>
+              <input type="hidden" id="serviceSelect" name="service" data-form-field="inquiry_type" required />
+            </div>
+          </div>
+
+          <div class="form-2-split">
+            <div class="form-line-group">
+              <label class="form-line-label" for="nameField" data-bind="nameLabel">YOUR NAME *</label>
+              <input type="text" id="nameField" name="name" data-form-field="name" class="form-line-input" data-bind="namePlaceholder" data-bind-prop="placeholder" placeholder="例如：陳經理" required />
+            </div>
+            <div class="form-line-group">
+              <label class="form-line-label" for="companyField" data-bind="companyLabel">COMPANY NAME *</label>
+              <input type="text" id="companyField" name="company" data-form-field="company" class="form-line-input" data-bind="companyPlaceholder" data-bind-prop="placeholder" placeholder="例如：全球海運公司" required />
+            </div>
+          </div>
+
+          <div class="form-2-split">
+            <div class="form-line-group">
+              <label class="form-line-label" for="phoneField" data-bind="phoneLabel">CONTACT NUMBER</label>
+              <input type="tel" id="phoneField" name="phone" data-form-field="phone" class="form-line-input" data-bind="phonePlaceholder" data-bind-prop="placeholder" placeholder="+886 912 345 678" />
+            </div>
+            <div class="form-line-group">
+              <label class="form-line-label" for="emailField" data-bind="emailLabel">EMAIL ADDRESS *</label>
+              <input type="email" id="emailField" name="email" data-form-field="email" class="form-line-input" data-bind="emailPlaceholder" data-bind-prop="placeholder" placeholder="name@domain.com" required />
+            </div>
+          </div>
+
+          <div class="form-line-group">
+            <label class="form-line-label" for="subjectField" data-bind="subjectLabel">SUBJECT *</label>
+            <input type="text" id="subjectField" name="subject" data-form-field="subject" class="form-line-input" data-bind="subjectPlaceholder" data-bind-prop="placeholder" placeholder="請簡述您的洽詢主旨" required />
+          </div>
+
+          <div class="form-line-group">
+            <label class="form-line-label" for="messageField" data-bind="messageLabel">MESSAGE *</label>
+            <textarea id="messageField" name="message" data-form-field="message" class="form-line-textarea" rows="3" data-bind="messagePlaceholder" data-bind-prop="placeholder" placeholder="請詳細說明您的需求與合作構想..." required></textarea>
+          </div>
+
+          <!-- Captcha Container (Rendered dynamically if site key configured) -->
+          <div data-captcha="v2" style="margin-bottom: 16px;"></div>
+
+          <button type="submit" class="btn-poetic-submit" data-bind="submitBtnText">
+            SEND INQUIRY →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

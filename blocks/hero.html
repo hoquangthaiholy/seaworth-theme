@@ -1,0 +1,24 @@
+<section class="sp-hero" data-name="theme/hero" data-supports="margin" data-title="Subpage Hero Banner" data-category="theme" data-icon="cover-image" data-description="Subpage hero banner with background image, breadcrumbs, English title, and Chinese subtitle.">
+  <inspector-controls>
+    <panel-body title="Hero image">
+      <text-control data-bind="heroPosition" label="Image position (CSS object-position)" default="center center" help="e.g. center 30% to show more of the top of the photo."></text-control>
+    </panel-body>
+  </inspector-controls>
+  <img data-bind="heroImage" src="/wp-content/themes/seaworth/assets/hero/hero-vessel.jpg" alt="Hero Banner" style="object-position: {{ heroPosition }};" />
+  <div class="sp-hero-inner">
+    <nav class="sp-breadcrumb">
+      <!-- Mẫu breadcrumbs hiển thị trực quan trong Block Editor khi chưa có dữ liệu breadcrumbs -->
+      <template data-if="context.is_editor">
+        <a href="#"><span>首頁</span></a><span> ／ </span><a href="#"><span>公司總覽</span></a><span> ／ </span><span>關於海沃</span>
+      </template>
+      <template data-else data-for="crumb in breadcrumbs">
+        <a href="#" data-bind="crumb.url" data-bind-prop="href" data-if="!crumb.is_current"><span data-bind="crumb.title">首頁</span></a><span data-bind="crumb.title" data-else>當前頁</span><span data-if="!crumb.is_last"> ／ </span>
+      </template>
+    </nav>
+    <span class="sp-hero-eyebrow" data-bind="eyebrow">GROUP OVERVIEW</span>
+    <h1 class="sp-hero-title">
+      <span data-bind="heroTitle">ABOUT SEAWORTH</span>
+      <span class="sp-hero-sub" data-bind="heroSubtitle">關於海沃</span>
+    </h1>
+  </div>
+</section>

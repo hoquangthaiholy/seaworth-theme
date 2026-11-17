@@ -1,0 +1,70 @@
+<section class="section-container" id="three-sectors" data-name="theme/three-pillars" data-title="Three Business Pillars" data-category="theme" data-icon="screenoptions" data-description="Showcase of group core business pillars: 華偉, 巨寶, 華昇 with vessel photos and advantages.">
+  <inspector-controls>
+    <panel-body title="Pillars Header Settings">
+      <text-control data-bind="ctaUrl" label="CTA Button URL"></text-control>
+    </panel-body>
+  </inspector-controls>
+
+  <div class="staggered-layout">
+    <!-- 背景氛圍線條：單一流動的優雅弧線，搭配一條極淡虛線回聲與一顆銅色點綴 -->
+    <div class="staggered-lineart">
+      <canvas id="sectorWaveCanvas" style="width:100%; height:100%; position:absolute; top:0; left:0; pointer-events:none;"></canvas>
+    </div>
+
+    <div class="header-block">
+      <h2 data-bind="headerTitle">THREE<br>PILLARS</h2>
+      <span class="tagline" data-bind="headerTagline">海沃控股旗下三大事業群</span>
+    </div>
+
+    <!-- Pillars: each item is a repeater entry; data-align picks which side the text panel sits on; the tags are a nested repeater. -->
+    <div class="sector-group" data-repeater="pillars" data-label="Pillar" data-repeater-item-label="brandLogo_alt" data-bind="align" data-bind-prop="data-align" data-option-values="left:Left|right:Right" data-option-label="Text panel position" data-align="right">
+      <img data-bind="shipImage" src="/wp-content/themes/seaworth/assets/photo/2_nologo.jpg" class="ship-img" alt="WIN HOPE 707" />
+      <div class="overlay-panel">
+        <img data-bind="brandLogo" src="/wp-content/themes/seaworth/assets/logo/logo-huawei.png" alt="華偉漁業事業群 FAIR WELL" class="sector-brand-logo" />
+        <p class="panel-desc" data-bind="desc" data-bind-control="textarea">傳承自 1983 年高雄前鎮漁港冷凍倉儲與第一艘圍網漁船，奠定公司雄厚實力與全球化根基。</p>
+        <div class="panel-divider"></div>
+        <div class="panel-sub-label" data-bind="subLabel">核心範疇與優勢</div>
+        <div class="tag-group">
+          <span class="tag" data-repeater="tags" data-label="Tag" data-repeater-item-label="tag" data-bind="tag">產業根基</span>
+          <span class="tag" data-repeater="tags" data-label="Tag" data-repeater-item-label="tag" data-bind="tag">遠洋圍網</span>
+          <span class="tag" data-repeater="tags" data-label="Tag" data-repeater-item-label="tag" data-bind="tag">冷凍倉儲</span>
+          <span class="tag" data-repeater="tags" data-label="Tag" data-repeater-item-label="tag" data-bind="tag">全球運籌</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-group" data-repeater="pillars" data-label="Pillar" data-repeater-item-label="brandLogo_alt" data-bind="align" data-bind-prop="data-align" data-option-values="left:Left|right:Right" data-option-label="Text panel position" data-align="left">
+      <img data-bind="shipImage" src="/wp-content/themes/seaworth/assets/cutout/vessel-tuna-manzai-707.png" class="ship-img" alt="TIARA 108" />
+      <div class="overlay-panel">
+        <img data-bind="brandLogo" src="/wp-content/themes/seaworth/assets/logo/logo-jubao.png" alt="巨寶漁業事業群 JUMBO" class="sector-brand-logo" />
+        <p class="panel-desc" data-bind="desc" data-bind-control="textarea">深耕圍網捕撈，引進新世代前瞻船舶設計，嚴格接軌國際勞工合規標準。</p>
+        <div class="panel-divider"></div>
+        <div class="panel-sub-label" data-bind="subLabel">技術與合規佈局</div>
+        <div class="tag-group">
+          <span class="tag" data-repeater="tags" data-label="Tag" data-repeater-item-label="tag" data-bind="tag">智慧造船</span>
+          <span class="tag" data-repeater="tags" data-label="Tag" data-repeater-item-label="tag" data-bind="tag">國際合規</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-group" data-repeater="pillars" data-label="Pillar" data-repeater-item-label="brandLogo_alt" data-bind="align" data-bind-prop="data-align" data-option-values="left:Left|right:Right" data-option-label="Text panel position" data-align="right">
+      <img data-bind="shipImage" src="/wp-content/themes/seaworth/assets/photo/3_nologo.jpg" class="ship-img" alt="BL2203" />
+      <div class="overlay-panel">
+        <img data-bind="brandLogo" src="/wp-content/themes/seaworth/assets/logo/logo-huasheng.png" alt="華昇魷釣事業群 HUA SHENG" class="sector-brand-logo" />
+        <p class="panel-desc" data-bind="desc" data-bind-control="textarea">專精魷魚秋刀魚船與延繩釣漁船，展現高技術漁法、生態永續與全球供應的頂尖專業。</p>
+        <div class="panel-divider"></div>
+        <div class="panel-sub-label" data-bind="subLabel">精準技術與永續</div>
+        <div class="tag-group">
+          <span class="tag" data-repeater="tags" data-label="Tag" data-repeater-item-label="tag" data-bind="tag">精準漁法</span>
+          <span class="tag" data-repeater="tags" data-label="Tag" data-repeater-item-label="tag" data-bind="tag">高技術捕撈</span>
+          <span class="tag" data-repeater="tags" data-label="Tag" data-repeater-item-label="tag" data-bind="tag">魷秋延繩釣</span>
+          <span class="tag" data-repeater="tags" data-label="Tag" data-repeater-item-label="tag" data-bind="tag">生態永續</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-container">
+    <a href="#three-sectors" class="cta-btn" data-bind="ctaText">DISCOVER →</a>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<?php
+/**
+ * Title: Page: Corporate News / 企業動態
+ * Slug: seaworth/page-corporate-news
+ * Categories: pages
+ * Keywords: corporate news, updates, fleet, seaworth
+ *
+ * @package Seaworth
+ * @since 1.0.0
+ */
+?>
+<!-- wp:theme/hero {"heroImage_url": "/wp-content/themes/seaworth/assets/hero/hero-news-corporate.jpg", "heroImage_alt": "企業動態", "eyebrow": "NEWS & INSIGHTS", "heroTitle": "CORPORATE NEWS", "heroSubtitle": "企業動態", "heroPosition": "center 30%"} /-->
+<!-- wp:theme/news-archive {"lede": "國際認證與獲獎、新船隊擴建、戰略合作"} /-->
+<!-- wp:theme/crosslinks {"prevLink": "← 官方公告", "prevLink_url": "/announcements", "nextLink": "永續實踐 →", "nextLink_url": "/sustainability-practice"} /-->
