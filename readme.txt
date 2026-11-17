@@ -4,7 +4,7 @@ Tags: full-site-editing, block-theme, luxury, corporate, ocean, custom-colors, c
 Requires at least: 6.6
 Tested up to: 6.7
 Requires PHP: 8.0
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

@@ -23,7 +23,7 @@ class Seaworth_Updater {
 	const REPO      = 'hoquangthaiholy/seaworth-theme';
 	const MANIFEST  = 'https://raw.githubusercontent.com/hoquangthaiholy/seaworth-theme/main/update.json';
 	const CACHE_KEY = 'seaworth_update_manifest';
-	const CACHE_OK  = 12 * HOUR_IN_SECONDS;
+	const CACHE_OK  = 6 * HOUR_IN_SECONDS;
 	const CACHE_BAD = HOUR_IN_SECONDS;
 
 	/**
@@ -33,6 +33,8 @@ class Seaworth_Updater {
 		add_filter( 'pre_set_site_transient_update_themes', array( __CLASS__, 'filter_update_transient' ) );
 		add_filter( 'upgrader_pre_download', array( __CLASS__, 'verify_package' ), 10, 4 );
 		add_action( 'upgrader_process_complete', array( __CLASS__, 'clear_cache' ) );
+		// "Check again" on Dashboard → Updates (and any forced check) deletes the core transient: refresh ours too.
+		add_action( 'deleted_site_transient', array( __CLASS__, 'maybe_clear_cache' ) );
 	}
 
 	/**
@@ -83,6 +85,7 @@ class Seaworth_Updater {
 	 * @return array Validated manifest or array( 'error' => message ).
 	 */
 	private static function fetch_manifest() {
+		// Note: raw.githubusercontent.com caches a file for up to 5 minutes, so a release can take that long to appear.
 		$response = wp_safe_remote_get(
 			self::manifest_url(),
 			array(
@@ -183,6 +186,18 @@ class Seaworth_Updater {
 			return new WP_Error( 'seaworth_checksum', __( 'The downloaded theme update does not match its checksum, so it was not installed.', 'seaworth' ) );
 		}
 		return $file;
+	}
+
+	/**
+	 * Drop our cache when WordPress discards its theme update data.
+	 *
+	 * @param string $transient Transient name.
+	 * @return void
+	 */
+	public static function maybe_clear_cache( $transient ) {
+		if ( 'update_themes' === $transient ) {
+			self::clear_cache();
+		}
 	}
 
 	/**
