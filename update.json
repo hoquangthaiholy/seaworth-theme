@@ -1,7 +1,7 @@
 {
-  "version": "1.1.0",
-  "package": "https://github.com/hoquangthaiholy/seaworth-theme/releases/download/v1.1.0/seaworth-1.1.0.zip",
-  "sha256": "d20e47553bc92eb19ce46ff49787e0d0d4dd7042404f737bbb7c579fcdac4cfd",
+  "version": "1.1.1",
+  "package": "https://github.com/hoquangthaiholy/seaworth-theme/releases/download/v1.1.1/seaworth-1.1.1.zip",
+  "sha256": "c4b938a9de10a7461f7930b3e2eeead4dc87c1afaa20b2fb5a1bb6559e6d3cf4",
   "requires": "6.6",
   "requires_php": "8.0",
   "released": "2026-11-17"
